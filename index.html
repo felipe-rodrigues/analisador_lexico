@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Analisador Léxico</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Le styles -->
+        <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="bootstrap/js/bootstrap.js" ></script>
+        <link href="bootstrap/css/stilo.css" rel="stylesheet">
+        <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <link rel="shortcut icon" href="bootstrap/img/glyphicons-halflings-white.png">
+        <link rel="shortcut icon" href="bootstrap/img/glyphicons-halflings.png">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+       
+    </head>
+
+    <body>
+        <div id="wrap">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">Analisador Léxico</a>
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                            Logged in as <a href="#" class="navbar-link">Username</a>
+                        </p>
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">Sobre</a></li>
+                            <li><a href="#contact">Contato</a></li>
+                        </ul>
+                    </div>/.nav-collapse 
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+
+                </div>
+                <div class="span10">
+                    <form class="form-horizontal" action="index.php">
+                        <fieldset>
+                            <legend>Analisador</legend>
+                            <div class="control-group">
+                                <label class="control-label" for="codigo">Código</label>
+                                <div class="controls">                     
+                                    <textarea id="codigo" name="codigo" rows="20" style="width: 1000px;" placeholder="Digite aqui o código a ser analisado" > </textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-large btn-primary " >Gerar Tokens</button>
+                            <!--<button type="button" class="btn btn-large btn-success " >Ver tabela de Símbolos</button>-->
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+  </div>  
+        <footer>
+            <div id="footer">
+                <!--<div class="container">-->
+                    <div class="span5  azul">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <!--<p class="muted credit">Trablho da Disciplna de Compiladores   <a href="https://br.linkedin.com/pub/felipe-rodrigues/104/179/85">Felipe Rodrigues</a>.</p>-->
+                    
+                </div>
+            <!--</div>-->
+        </footer>
+    </body>
+</html>
+
+
+
