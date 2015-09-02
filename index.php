@@ -1,68 +1,74 @@
 <?php
 
 $codigo = $_POST[codigo];
+
+//Gambiarra 
+//separa pontuacoes e operadores de strings ex program; = program ;
+$pontos = array('(',')',';',',','.','}','{','&&','||','>=','<=','!=','>','<','=','+i','-i','di');
+$pontos_espacados = array(' ( ',' ) ',' ; ',' , ',' . ',' } ',' { ',' && ',' || ','+i','-i','di',' > ',' < ',' = ',' >= ',' <= ',' != ');
+$tabela_simbolos=array();
+$codigo = str_replace($pontos,$pontos_espacados , $codigo);
+
 Analisador($codigo);
 
-
-
 function Analisador($string){
-    
-    
-    for($i=0;$i<strlen($string);$i++){
-        $i= encontraPalavra($i, $string);
+        echo "<pre>";
+      for($i=0;$i<strlen($string);$i++){
+        if(!ctype_space($string[$i]) && !ctype_cntrl($string[$i]))
+              $i= encontraPalavra($i, $string);
     }
+    echo "</pre>";
+    
+    echo "<pre>";
+    echo "Tabela de Símbolos";
+    print_r($GLOBALS[tabela_simbolos]);
+    echo "</pre>";
 }
 
 
+
 function encontraPalavra($j,$code){
-            $palavras_reservadas= array("program ;","var","int","if","else","while","float","string","end");
-            $operadores = array(">","<","=",">=","<=");
+            $palavras_reservadas= array("program","var","int","if","else","while","float","string","end");
+            $operadores = array("<=",">=","!=","<",">","=");
             $pontos = array("(",")",";",",",".","}","{","&&","||");
-            $tabela_simbolos=array();
-    
-       
+            
         $i =0;
         $palavra="";
-      !ctype_cntrl($code[$j]) || !ctype_space($code[$j]) ;
-        while(!ctype_cntrl($code[$j]) || !ctype_space($code[$j]) ){
-            echo "[".strtoupper($i);
-            echo  "<b>".strtoupper($code[$j])."</b>]";
+
+        while(!ctype_space($code[$j]) && !ctype_cntrl($code[$j])  && $j<  strlen($code)){
             $palavra.= $code[$j];
-//            $palavra[$i] = $code[$j];
             $i++;
             $j++;
         }
-            echo "<pre>";
-//            echo "$palavra-";
             
-     
+            
         if(in_array($palavra,$palavras_reservadas)){
-            echo "<br>";
-            echo "[".$palavra."]";
-//            echo $palavra;
+            echo "[".strtoupper($palavra)."]";
         }
-//        elseif(is_int($palavra)){
-//            echo "<NUM,$palavra>;";
-//        }
-//        elseif(is_string($palavra)){
-//            echo "<LITERAL,$palavra>;";
-//        }
-//        elseif(in_array($palavra, $GLOBALS[operadores])){
-//            echo "<OP,$palavra>;";
-//        }
-//        elseif(in_array($palavra, $GLOBALS[pontos])){
-//            echo "<PT,$palavra>;";
-//        }
-//        else{
-//            $posicao = array_search($palavra, $GLOBALS[tabela_simbolos]);
-//            if(!$posicao){
-//                $GLOBALS[tabela_simbolos][]= $palavra;
-//                echo "<ID,".key($GLOBALS[tabela_simbolos]).">;";
-//            }
-//            else{
-//                echo "<ID,$posicao>;";
-//            }
-            echo "</pre>";
+        elseif(ctype_digit($palavra)){
+            echo "[NUM,$palavra]";
+        }
+        elseif(in_array($palavra, $operadores)){
+            echo "[OP,$palavra]";
+        }
+        elseif(in_array($palavra, $pontos)){
+            echo "[PT,'$palavra']";
+        }
+        elseif(ctype_alpha($palavra)){
+            $posicao = array_search($palavra, $GLOBALS[tabela_simbolos]);
+            if($posicao===false){
+                $c = count($GLOBALS[tabela_simbolos]);
+                $GLOBALS[tabela_simbolos][$c]= $palavra;
+                echo "[ID,".$c."]";
+            }
+            else{
+                echo "[ID,$posicao]";
+            }
+        }
+         elseif(is_string($palavra)){
+            echo "[LITERAL,$palavra]";
+        }
+         
             return $j;
 }
 
