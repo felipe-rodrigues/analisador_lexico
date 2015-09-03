@@ -20,7 +20,7 @@ function Analisador($string){
     echo "</pre>";
     
     echo "<pre>";
-    echo "Tabela de Símbolos";
+    echo "Tabela de Símbolos<hr>";
     print_r($GLOBALS[tabela_simbolos]);
     echo "</pre>";
 }
