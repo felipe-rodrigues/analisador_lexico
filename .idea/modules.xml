@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/analisador_lexico.iml" filepath="$PROJECT_DIR$/.idea/analisador_lexico.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Analisador-Léxico.iml" filepath="$PROJECT_DIR$/.idea/Analisador-Léxico.iml" />
     </modules>
   </component>
 </project>
